@@ -1,0 +1,47 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+en:
+  hello: "Hello world"
+
+  blacklight:
+    header_links:
+      bookmarks: 'Favorites'
+
+    bookmarks:
+      collection:
+        add:
+          button: 'Add to Favorites'
+      title: 'Favorites'
+      no_bookmarks: 'You have no favorites'
+      add:
+        button: 'Favorite'
+        success:
+          one: 'Successfully added favorite.'
+          other: 'Successfully added favorites.'
+        failure:  'Sorry, there was a problem saving the favorites.'
+      remove:
+        button: 'Remove favorite'
+        success: 'Successfully removed favorite.'
+        failure: 'Sorry, there was a problem removing the favorites.'
+        action_confirm: 'Remove this favorite?'
+      clear:
+        action_title: 'Clear Favorites'
+        action_confirm: 'Clear your favorite?'
+        success: 'Cleared your favorites.'
+        failure: 'Sorry, there was a problem clearing your favorites.'
+      need_login: 'Please log in to manage and view your favorites.'
+      list_title: 'Your Favorites'
+      login: 'add to Favorites'
+
+    back_to_bookmarks: 'Back to Favorites'
+
+    email:
+      user_not_signed_in:  'You must log in to send email'
+
+    search:
+      facets:
+        login:  'Favorites'
+        view_favorites: 'Favorites'
+      filters:
+        title:  'Search Results:'

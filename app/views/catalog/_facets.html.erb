@@ -1,0 +1,37 @@
+<% # main container for facets/limits menu -%>
+<% if has_facet_values?  %>
+    <div>
+      <div id="facets" class="facets sidenav" style="border-style:solid; border-width: 1px 1px 1px 1px; border-color: #bbb; box-shadow: -1px 5px 5px rgba(50, 50, 50, 0.2);">
+        <div style="height:28px;background-color:#d8d8d8;padding-bottom: 6px ">
+          <h5 style="margin-top:0; font-size:13px; color:#333; background-color: #999; border-top: 1px solid #999;" >Search by Category</h5>
+        </div>
+        <div style="height:35px;margin-bottom:0;">
+          <h5 style="padding-right: 9px;border-top: 1px solid #999;">
+            <% if current_user %>
+                <%= link_to t('blacklight.search.facets.view_favorites'), { controller: 'bookmarks' }, class: 'ribbon_view_favorites' %>
+                <img src="/assets/light_heart.jpg" style="float:right">
+            <% else %>
+                <%= link_to t('blacklight.search.facets.login'), { controller: 'bookmarks' }, class: 'ribbon_view_favorites'  %>
+                <img src="/assets/light_heart.jpg" style="float:right">
+            <% end %>
+          </h5>
+        </div>
+        <div class="facets-collapse">
+          <%= render_facet_partials %>
+        </div>
+      </div>
+<!--
+      <% if !request.path.match('^/catalog/[0-9]+') %>
+          <div class="facet_limit blacklight-onview_r">
+            <%if request.original_url.include? "true" %>
+                <input type="checkbox" id="check_view" checked="true"/>
+            <%else%>
+                <input type="checkbox" id="check_view"/>
+            <%end%>
+            <h5 for="check_view">On View</h5>
+          </div>
+      <%end%>
+-->
+<% end %>&nbsp;
+</div>
+

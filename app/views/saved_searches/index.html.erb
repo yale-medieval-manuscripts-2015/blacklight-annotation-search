@@ -1,0 +1,32 @@
+<div class="user_data_div">
+<h1><%= t('blacklight.saved_searches.title') %></h1>
+
+<%- if current_or_guest_user.blank? -%>
+
+    <h3><%= t('blacklight.saved_searches.need_login') %></h3>
+
+<%- elsif @searches.blank? -%>
+
+    <h3><%= t('blacklight.saved_searches.no_searches') %></h3>
+
+<%- else -%>
+    <p>
+        <%= link_to t('blacklight.saved_searches.clear.action_title'), clear_saved_searches_path, :method => :delete, :data => { :confirm => t('blacklight.saved_searches.clear.action_confirm') } %>
+    </p>
+
+    <h2><%= t('blacklight.saved_searches.list_title') %></h2>
+    <table class="table table-striped">
+        <%- @searches.each do |search| -%>
+          <% if search.query_params.is_a?(String)%>
+              <%search.query_params=Hash[*search.query_params.sub!("---\n:","").gsub!(' ','').split(/:|\n:/).each_slice(2).collect{ |k,v| [k,v] }.flatten]%>
+              <%search.query_params = search.query_params.inject({}){|memo,(k,v)| memo[k.to_sym] = v; memo}%>
+          <%end%>
+          <tr>
+                <td><%= link_to_previous_search(search.query_params) %></td>
+                <td><%= button_to t('blacklight.saved_searches.delete'), forget_search_path(search.id) %></td>
+            </tr>
+        <%- end -%>
+    </table>
+
+<%- end -%>
+</div>

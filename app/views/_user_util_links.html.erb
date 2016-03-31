@@ -1,0 +1,29 @@
+<div id="bl_nav_container">
+  <ul id="bl_menu">
+
+        <% if has_user_authentication_provider? %>
+
+                <% if current_user %>
+                   <li><%= link_to t('blacklight.header_links.logout'), destroy_user_session_path %> </li>
+                <% else %>
+                   <li><%= link_to t('blacklight.header_links.login'), new_user_session_path %></li>
+            <% end %>
+        <% end %>
+
+
+        <% if current_user %>
+                <li><%= link_to t('blacklight.header_links.bookmarks'), bookmarks_path %></li>
+        <% end %>
+
+        <% if has_user_authentication_provider? and current_user %>
+                <li><%= link_to t('blacklight.header_links.saved_searches'), saved_searches_path %></li>
+        <% end %>
+        <li> <%= link_to t('blacklight.header_links.search_history'), search_history_path %></li>
+
+
+        <li><a href="/">Terms of Use</a></li>
+        <% if has_search_parameters? || params[:action] != 'index'  %>
+        <% end %>
+
+    </ul>
+</div>

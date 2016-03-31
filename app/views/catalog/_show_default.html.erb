@@ -1,0 +1,7 @@
+<%# default partial to display solr document fields in catalog show view -%>
+<!-- _show_default.html.erb -->
+
+<%= image_tag(document[:iiif_annotation_image_s] , :alt => "#{document[:manifest_label_t][0]}, #{document[:canvas_label_t][0]}", :id => 'img_wh', :style => 'display:block; clear:both;' )  %>
+<div id="cap_wh" class="description">
+   <!--% =render_document_heading(:h6).html_safe %-->
+</div>

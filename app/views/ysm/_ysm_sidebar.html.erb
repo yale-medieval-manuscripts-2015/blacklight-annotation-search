@@ -1,0 +1,56 @@
+
+<div class="well" id="sidebar-nav" style="margin-top: -15px;">
+
+
+  <div style="padding-left: 10px">
+    <%= render_document_heading(:h2,:class=>'manifest_label').html_safe %>
+    <dl class="dl-horizontal dl-invert">
+        <dt>Folio:</dt>
+        <dd><%= render_link_to_mirador(document)%></dd>
+        <!--<br>-->
+        <!--<dt>Tags:</dt>
+        <dd><%#= render_document_show_field_value :document => document, :field => 'tags_t' %></dd>-->
+        <%= render_metadata_fields(document) %>
+
+        <dt>Annotation:</dt>
+        <dd><%= render_document_show_field_value :document => document, :field => 'text_t' %></dd>
+        <dt>Tagged by:</dt>
+        <dd><%= render_document_show_field_value :document => document, :field => 'creator_t' %></dd>
+
+        <%= render_links(document[:related_item_label_t], document[:related_item_uri_t], {:target=>'_new'}) %>
+
+    </dl>
+
+
+        <div class="metadata-divider"></div>
+        <h4>Folio</h4>
+        <%= image_tag(render_thumb(document[:iiif_canvas_image_s], 600), :alt => "#{document[:manifest_label_t][0]}, #{document[:canvas_label_t][0]}", :style=>"width:300px;")  %>
+
+        <div class="metadata-divider"></div>
+        <h4>Rights</h4>
+      <dl class="dl-horizontal dl-invert">
+
+        <% if document[:attribution_t] %>
+            <dt>Attribution:</dt>
+            <dd><%= render_document_show_field_value :document => document, :field => 'attribution_t' %></dd>
+        <% end %>
+        <% if document[:license_t] %>
+            <dt>License:</dt>
+            <dd><%= link_to( "#{document[:license_t][0]}", "#{document[:license_t][0]}", {:target=>'_new'} ) %></dd>
+        <% end %>
+          <% if document[:logo_s] %>
+              <%= image_tag(document[:logo_s], :alt => "Logo", :class => 'logo_image') %>
+          <% end %>
+          </dl>
+
+
+  </div>
+
+    <div class="blackLine"></div>
+        <%= render :partial => 'catalog/bookmark_control',  :locals => { :document => document }  %>
+        <% if current_user %>
+        <br/>
+    <%end%>
+    <div class="blackLine" style="margin-top: 5px" />
+
+</div>

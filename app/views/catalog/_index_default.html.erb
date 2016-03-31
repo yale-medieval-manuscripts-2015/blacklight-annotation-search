@@ -1,0 +1,22 @@
+<%# default partial to display solr document fields in catalog index view -%>
+<!-- _index_default.html.erb -->
+<div class="documentHeader clearfix"></div>
+
+<dl class="dl-horizontal dl-invert anno_list"  >
+    <% index_fields.each do |solr_fname, field| -%>
+        <% if should_render_index_field? document, field %>
+            <dt class="blacklight-<%= solr_fname.parameterize %>"><%= render_index_field_label :field => solr_fname %></dt>
+            <dd class="blacklight-<%= solr_fname.parameterize %>"><%= render_index_field_value :document => document, :field => solr_fname %></dd>
+            <dt>Annotation:</dt>
+            <dd><%= render_document_show_field_value :document => document, :field => 'text_t' %></dd>
+        <% end -%>
+    <% end -%>
+</dl>
+
+<!-- bookmark function now here -->
+<% # bookmark functions for items/docs -%>
+<div class="box_footer">
+<%= render_index_doc_actions document, :wrapping_class => "documentFunctions" %>
+</div>
+<!-- <div style="clear:both;" ></div>  -->
+<!-- end of _index_default.html.erb -->

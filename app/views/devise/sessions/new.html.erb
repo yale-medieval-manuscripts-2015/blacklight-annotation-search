@@ -1,0 +1,188 @@
+<!--<div class="user_data_div span3" style="height:380px; margin-left: 10%">-->
+<style>
+
+    .panel {
+        padding: 15px;
+        margin-bottom: 20px;
+        background-color: #ffffff;
+        border: 1px solid #dddddd;
+        border-radius: 4px;
+        -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.05);
+    }
+
+    .panel-heading {
+        padding: 10px 15px;
+        margin: -10px -10px 10px;
+        font-size: 17.5px;
+        font-weight: 500;
+        background-color: #f5f5f5;
+        border-bottom: 1px solid #dddddd;
+        border-top-right-radius: 3px;
+        border-top-left-radius: 3px;
+    }
+    .panel-title {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-size: ceil((@font-size-base * 1.125));
+        color: inherit;
+
+    > a {
+          color: inherit;
+      }
+    }
+
+    .panel-footer {
+        padding: 10px 15px;
+        margin: 15px -15px -15px;
+        background-color: #f5f5f5;
+        border-top: 1px solid #dddddd;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+
+    .panel-default {
+    .panel-variant(@panel-default-border; @panel-default-text; @panel-default-heading-bg; @panel-default-border);
+    }
+
+    .panel-primary {
+        border-color: #428bca;
+    }
+    .panel-body {
+        padding: @panel-body-padding;
+        &:extend(.clearfix all);
+    }
+
+    .panel-primary .panel-heading {
+        color: #ffffff;
+        background-color: #428bca;
+        border-color: #428bca;
+    }
+
+    .panel-success {
+        border-color: #d6e9c6;
+    }
+
+    .panel-success .panel-heading {
+        color: #468847;
+        background-color: #dff0d8;
+        border-color: #d6e9c6;
+    }
+
+    .panel-warning {
+        border-color: #fbeed5;
+    }
+
+    .panel-warning .panel-heading {
+        color: #c09853;
+        background-color: #fcf8e3;
+        border-color: #fbeed5;
+    }
+
+    .panel-danger {
+        border-color: #eed3d7;
+    }
+
+    .panel-danger .panel-heading {
+        color: #b94a48;
+        background-color: #f2dede;
+        border-color: #eed3d7;
+    }
+
+    .panel-info {
+        border-color: #bce8f1;
+    }
+
+    .panel-info .panel-heading {
+        color: #3a87ad;
+        background-color: #d9edf7;
+        border-color: #bce8f1;
+    }
+</style>
+    <div class="container">
+        <div class="page-header">
+            <h2 style="font-size:30px"> Sign in</h2>
+        </div>
+        <div class="col-sm-12 col-md-6">
+
+    <div class="panel  panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title" style = "color:white!important">Yale Users</h3>
+        </div>
+        <div class="panel-body">
+            Yale users should <%= link_to "sign in with CAS", omniauth_authorize_path(resource_name, 'cas') %>.
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Email-based accounts</h3>
+        </div>
+        <div class="panel-body">
+            <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div style="font-weight:700"><%= f.label :email %><br/>
+                <%= f.email_field :email, autofocus: true %></div>
+
+            <div><%= f.label :password %><br/>
+                <%= f.password_field :password, autocomplete: "off" %></div>
+
+            <% if devise_mapping.rememberable? -%>
+                <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
+            <% end -%>
+
+            <div><%= f.submit "Sign in" %></div>
+            <% end %>
+            <br/>
+        </div>
+    </div>
+
+            <div class="well">
+                <%= render "devise/shared/links" %>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!--<h2>Public Sign in</h2>
+
+<%#= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div><%#= f.label :email %><br />
+  <%#= f.email_field :email, :autofocus => true %></div>
+
+  <div><%#= f.label :password %><br />
+  <%#= f.password_field :password %></div>
+
+  <% #if devise_mapping.rememberable? %>
+
+    <div style="width:120px; padding-bottom:30px">
+        <div style="float:left"><%#= f.check_box :remember_me %></div>
+        <div style="float:right; padding-top:4px"><%#= f.label :remember_me %></div>
+    </div>
+ <% #end %>
+
+  <div><%#= f.submit "Sign in" %></div>
+<% #end %>
+
+<%#= render "devise/shared/links" %>
+</div>
+
+<div class="user_data_div span3" style=" height:380px; margin-left:10%">
+  <div style="width:50%;float:left; text-align: right; margin-top: 15px">
+    <img src="<%#= asset_path 'yale-blue.png'%>" >
+  </div>
+  <div style="width:50%;float:right;text-align: left" >
+    <h2>Sign in</h2>
+  </div>
+  <br/>
+  <div class="cas-link">
+    <% #if devise_mapping.omniauthable? %>
+        <% #resource_class.omniauth_providers.each do |provider| %>
+            <%#= link_to "Log in with Yale CAS", omniauth_authorize_path(resource_name, provider) %>
+            <br/>
+        <%# end %>
+    <% #end %>
+  </div>
+</div> -->

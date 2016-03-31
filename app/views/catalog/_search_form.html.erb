@@ -1,0 +1,32 @@
+<%= form_tag search_action_url, :method => :get, :class => 'search-query-form form-inline clearfix'  do %>
+    <%= search_as_hidden_fields(:omit_keys => [:q, :search_field, :qt, :page]).html_safe %>
+
+    <div class="input-append">
+
+        <label for="q" class="hide-text">What are you looking for?</label>
+        <%= text_field_tag :q, params[:q], :placeholder => "What are you looking for?", :class => "search_q q", :id => "q"%>
+
+        <div style="margin:0px;padding:0;display:inline">
+        <% unless search_fields.empty? %>
+
+                <label for="search_field" class="hide-text"><%= t('blacklight.search.form.search_field.label') %></label>
+                <%= select_tag(:search_field, options_for_select(search_fields, h(params[:search_field])), :title => t('blacklight.search.form.search_field.title'), :class=>"search_field input-small") %>
+              <span class="hide-text"><%= t('blacklight.search.form.search_field.post_label') %></span>
+
+
+        <% end %>
+        </div>
+
+        <button type="submit" class="btn btn-primary search-btn" id="search">
+                <span class="submit-search-text"></span>
+                <em class="icon-white"></em> <!-- ??? icon-search  -->
+        </button>
+     </div>
+
+    <!--
+    <% if has_search_parameters? || params[:action] != 'index' %>
+        <%= render :partial => '/user_util_links' %>
+    <% end %>
+    -->
+
+<% end %>

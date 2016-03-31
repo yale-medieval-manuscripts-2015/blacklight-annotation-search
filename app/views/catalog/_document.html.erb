@@ -1,0 +1,8 @@
+<!-- _document.html.erb -->
+<% # container for a single doc -%>
+<!-- NOTE: the span3 class was added here by me, change as needed -- Michael -->
+<div class="document <%= render_document_class document %> span3" style="margin: 19px; padding: 0" >
+    <%= render :partial => 'document_header', :locals => { :document => document, :document_counter => document_counter } %>
+    <%= render_document_partial document, :index %>
+</div>
+<!-- end of _document.html.erb -->

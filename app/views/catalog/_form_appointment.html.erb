@@ -1,0 +1,183 @@
+<!--form id="form199" name="form199" class="wufoo topLabel page1" accept-charset="UTF-8" autocomplete="off" enctype="multipart/form-data"method="get" novalidate="" action="#"-->
+
+  <%
+     if @form_appointment.nil?
+       @form_appointment=Form_appointment.new
+     end
+  %>
+
+  <%= form_for @form_appointment, :url => appointmentMail_path, :html => {:class => 'wufoo topLabel page1', :id=>'form199', :name=>'form199', :autocomplete=>"off", :enctype=>"multipart/form-data",:onsubmit => "return validate_appointemnt()", :novalidate=>""} do |f| %>
+
+<ul>
+
+<li id="fo199li1" class="notranslate      ">
+	<label class="desc" id="title1" for="Field1">
+		Name
+        <span id="req_1" class="req">*</span>
+	</label>
+	<span>
+		<input id="Field1" name="firstName" class="field text fn" size="8" tabindex="1" onkeyup="handleInput(this);" onchange="handleInput(this);" type="text">
+		<label for="Field1">First</label>
+	</span>
+	<span>
+		<input id="Field2" name="lastName" class="field text ln" size="14" tabindex="2" onkeyup="handleInput(this);" onchange="handleInput(this);" type="text">
+		<label for="Field2">Last</label>
+	</span>
+	</li>
+
+<li id="fo199li11" class="phone notranslate" style="width:50%">
+	<label class="desc" id="title11" for="Field11">
+		Phone Number
+			</label>
+	<span>
+		<input id="Field11" name="phone1" class="field text" size="3" maxlength="3" tabindex="3" onkeyup="handleInput(this);" onchange="handleInput(this);" type="tel">
+		<label for="Field11">###</label>
+	</span>
+	<span class="symbol">-</span>
+	<span>
+		<input id="Field11-1" name="phone2" class="field text" size="3" maxlength="3" tabindex="4" onkeyup="handleInput(this);" onchange="handleInput(this);" type="tel">
+		<label for="Field11-1">###</label>
+	</span>
+	<span class="symbol">-</span>
+	<span>
+	 	<input id="Field11-2" name="phone3" class="field text" size="4" maxlength="4" tabindex="5" onkeyup="handleInput(this);" onchange="handleInput(this);" type="tel">
+		<label for="Field11-2">####</label>
+	</span>
+	</li>
+
+  <li id="fo199li3" class="notranslate" style="float:right; clear: none; width:265px; position:absolute; right:0px; top: 86px">
+	<label class="desc" id="title3" for="Field3">
+		Email
+        <span id="req_3" class="req">*</span>
+			</label>
+	<div>
+		<input id="Field3" name="email" style="width:100%" spellcheck="false" class="field text medium" maxlength="255" tabindex="6" onkeyup="handleInput(this);" onchange="handleInput(this);" type="email">
+	</div>
+	</li>
+
+
+
+<li id="fo199li4" class="date notranslate" style="width:50%">
+	<label class="desc" id="title4" for="Field4">
+		Requested Date (1st choice)
+        <span id="req_4" class="req">*</span>
+			</label>
+	<span>
+		<input id="Field4-1" name="mm1" class="field text" size="2" maxlength="2" tabindex="7" onkeyup="handleInput(this);" onchange="handleInput(this);" type="text">
+		<label for="Field4-1">MM</label>
+	</span> 
+	<span class="symbol">/</span>
+	<span>
+		<input id="Field4-2" name="dd1" class="field text" size="2" maxlength="2" tabindex="8" onkeyup="handleInput(this);" onchange="handleInput(this);" type="text">
+		<label for="Field4-2">DD</label>
+	</span>
+	<span class="symbol">/</span>
+	<span>
+	 	<input id="Field4" name="yy1" class="field text" size="4" maxlength="4" tabindex="9" onkeyup="handleInput(this);" onchange="handleInput(this);" type="text">
+		<label for="Field4">YYYY</label>
+	</span>
+	<!--span id="cal4">
+		<img id="pick4" class="datepicker" src="<%= asset_path 'calendar.png' %>" alt="Pick a date." data-date-format="yyyy-mm-dd" data-date="2014-06-14">
+	</span-->
+	</li>
+
+<li id="fo199li6" class="date notranslate" style="float:right; width:50%; position:absolute; right:-15px; top: 172px">
+	<label class="desc" id="title6" for="Field6">
+		Requested Date (2nd choice)
+			</label>
+	<span>
+		<input id="Field6-1" name="mm2" class="field text" size="2" maxlength="2" tabindex="10" onkeyup="handleInput(this);" onchange="handleInput(this);" type="text">
+		<label for="Field6-1">MM</label>
+	</span> 
+	<span class="symbol">/</span>
+	<span>
+		<input id="Field6-2" name="dd2" class="field text" size="2" maxlength="2" tabindex="11" onkeyup="handleInput(this);" onchange="handleInput(this);" type="text">
+		<label for="Field6-2">DD</label>
+	</span>
+	<span class="symbol">/</span>
+	<span>
+	 	<input id="Field6" name="yy2" class="field text" size="4" maxlength="4" tabindex="12" onkeyup="handleInput(this);" onchange="handleInput(this);" type="text">
+		<label for="Field6">YYYY</label>
+	</span>
+	<!--span id="cal6">
+		<img id="pick6" class="datepicker" src="<%= asset_path 'calendar.png' %>" alt="Pick a date." data-date-format="yyyy-mm-dd" data-date="2014-06-14">
+	</span-->
+	</li>
+
+<li id="fo199li13" class="notranslate" style="width:265px">
+	<label class="desc" id="title13" for="Field13">
+		Instrument(s)
+			</label>
+	<div>
+		<input id="Field13" name="instrument" class="field text medium" style="width:100%" maxlength="255" tabindex="13" onkeyup="handleInput(this); " onchange="handleInput(this);" type="text">
+			</div>
+	</li>
+
+  <li id="fo200li16" class="notranslate" style="float:right; width:265px; position:absolute; right:0px; top: 258px">
+    <label class="desc" id="title16" for="Field16">
+      Accession Number
+    </label>
+    <div>
+      <input id="Field16" name="callNo" class="field text medium" style="width:100%" maxlength="255" tabindex="15" onkeyup="handleInput(this); " onchange="handleInput(this);" required="" type="text">
+    </div>
+  </li>
+
+
+<li id="fo199li5" class="notranslate" style="width:560px">
+	
+		
+	<label class="desc" id="title5" for="Field5">
+		Purpose of Visit
+      <span id="req_5" class="req">*</span>
+			</label>
+	
+	<div>
+				<textarea id="Field5" name="purpose" class="field textarea medium" spellcheck="true" rows="10" cols="50" tabindex="14" onkeyup="handleInput(this); " onchange="handleInput(this);"></textarea>
+			</div>
+
+	</li>
+
+
+
+<li id="fo199li8" class="notranslate">
+	<label class="desc " id="title8" for="Field8">
+		Number of People in Group
+			</label>
+	<div>
+		<input id="Field8" name="group" class="field text nospin medium" tabindex="15" onkeyup="handleInput(this); " onchange="handleInput(this);" type="text">
+			</div>
+	</li>
+
+ 
+	
+		
+	<li class="buttons ">
+		<div>
+								<input name="currentPage" id="currentPage" value="WOC0igUhtSWjIbLjcXCss8TaeyueHPe0EsqEP9Tnlhg=" type="hidden">
+						
+			    			    			        						    <input id="saveForm" name="saveForm" class="btTxt submit" value="Submit" onmousedown="doSubmitEvents();" type="submit">
+          <span id="notice" style="text-align:center;width:100%;color:#ff0000"></span>
+				
+				</div>
+	</li>
+	
+		<li class="hide">
+		<label for="comment">Do Not Fill This Out</label>
+		<textarea name="comment" id="comment" rows="1" cols="1"></textarea>
+		<input id="idstamp" name="idstamp" value="X7s1qguR6W/W5GmBs9smK9wNJ19mF5i0D4Ypf09P3Cs=" type="hidden">
+				<input id="stats" name="stats" value="{&quot;errors&quot;:0,&quot;startTime&quot;:0,&quot;endTime&quot;:0,&quot;referer&quot;:null}" type="hidden">
+				<input id="clickOrEnter" name="clickOrEnter" value="" type="hidden">
+			</li>
+	</ul>
+<%end%>
+
+
+<script>
+	__RULES = [];
+	__ENTRY = [];
+	__PRICES = null;
+
+</script>
+
+
+<div class="datepicker dropdown-menu"><div style="display: block;" class="datepicker-days"><table class=" table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">June 2014</th><th class="next">›</th></tr><tr><th class="dow">Su</th><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th></tr></thead><tbody><tr><td class="day  old">25</td><td class="day  old">26</td><td class="day  old">27</td><td class="day  old">28</td><td class="day  old">29</td><td class="day  old">30</td><td class="day  old">31</td></tr><tr><td class="day ">1</td><td class="day ">2</td><td class="day ">3</td><td class="day ">4</td><td class="day ">5</td><td class="day ">6</td><td class="day ">7</td></tr><tr><td class="day ">8</td><td class="day ">9</td><td class="day ">10</td><td class="day ">11</td><td class="day ">12</td><td class="day ">13</td><td class="day  active">14</td></tr><tr><td class="day ">15</td><td class="day ">16</td><td class="day ">17</td><td class="day ">18</td><td class="day ">19</td><td class="day ">20</td><td class="day ">21</td></tr><tr><td class="day ">22</td><td class="day ">23</td><td class="day ">24</td><td class="day ">25</td><td class="day ">26</td><td class="day ">27</td><td class="day ">28</td></tr><tr><td class="day ">29</td><td class="day ">30</td><td class="day  new">1</td><td class="day  new">2</td><td class="day  new">3</td><td class="day  new">4</td><td class="day  new">5</td></tr></tbody></table></div><div style="display: none;" class="datepicker-months"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">2014</th><th class="next">›</th></tr></thead><tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month">May</span><span class="month active">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span class="month">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month">Dec</span></td></tr></tbody></table></div><div style="display: none;" class="datepicker-years"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">2010-2019</th><th class="next">›</th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2009</span><span class="year">2010</span><span class="year">2011</span><span class="year">2012</span><span class="year">2013</span><span class="year active">2014</span><span class="year">2015</span><span class="year">2016</span><span class="year">2017</span><span class="year">2018</span><span class="year">2019</span><span class="year old">2020</span></td></tr></tbody></table></div></div><div class="datepicker dropdown-menu"><div style="display: block;" class="datepicker-days"><table class=" table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">June 2014</th><th class="next">›</th></tr><tr><th class="dow">Su</th><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th></tr></thead><tbody><tr><td class="day  old">25</td><td class="day  old">26</td><td class="day  old">27</td><td class="day  old">28</td><td class="day  old">29</td><td class="day  old">30</td><td class="day  old">31</td></tr><tr><td class="day ">1</td><td class="day ">2</td><td class="day ">3</td><td class="day ">4</td><td class="day ">5</td><td class="day ">6</td><td class="day ">7</td></tr><tr><td class="day ">8</td><td class="day ">9</td><td class="day ">10</td><td class="day ">11</td><td class="day ">12</td><td class="day ">13</td><td class="day  active">14</td></tr><tr><td class="day ">15</td><td class="day ">16</td><td class="day ">17</td><td class="day ">18</td><td class="day ">19</td><td class="day ">20</td><td class="day ">21</td></tr><tr><td class="day ">22</td><td class="day ">23</td><td class="day ">24</td><td class="day ">25</td><td class="day ">26</td><td class="day ">27</td><td class="day ">28</td></tr><tr><td class="day ">29</td><td class="day ">30</td><td class="day  new">1</td><td class="day  new">2</td><td class="day  new">3</td><td class="day  new">4</td><td class="day  new">5</td></tr></tbody></table></div><div style="display: none;" class="datepicker-months"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">2014</th><th class="next">›</th></tr></thead><tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month">May</span><span class="month active">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span class="month">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month">Dec</span></td></tr></tbody></table></div><div style="display: none;" class="datepicker-years"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">2010-2019</th><th class="next">›</th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2009</span><span class="year">2010</span><span class="year">2011</span><span class="year">2012</span><span class="year">2013</span><span class="year active">2014</span><span class="year">2015</span><span class="year">2016</span><span class="year">2017</span><span class="year">2018</span><span class="year">2019</span><span class="year old">2020</span></td></tr></tbody></table></div></div></body></html>

@@ -1,0 +1,65 @@
+<!--ADDED BY MADISON MOTT -->
+<header id="ysm_header" class="ysm-interior">
+    <div class="container">
+        <!--
+        <div class="row-fluid" id="ysm_nav_container">
+            <ul id="ysm_main_nav">
+                <li>
+                    <a href="#">Study</a>
+                </li>
+
+                <li>
+                    <a href="#">Concerts</a>
+                </li>
+
+                <li>
+                    <a href="#">Resources</a>
+                </li>
+
+                <li>
+                    <a href="#">Community</a>
+                </li>
+            </ul>
+
+            <ul id="ysm_right_menu">
+                <li>
+                    <a href="#">Students</a>
+                </li>
+
+                <li>
+                    <a href="#">Alumni</a>
+                </li>
+
+                <li>
+                    <a href="#">Faculty</a>
+                </li>
+            </ul>
+        </div>--><!--MOVED FROM FIXED TOP-->
+      <div class="row container">
+        <div class="span4"></div>
+        <% if query_has_constraints? %>
+              <div id="appliedParams" class="constraints-container span8" style="margin-top: 20px; margin-left: -10px">
+              <span class="constraints-label"><%= t('blacklight.search.filters.title') %></span>
+
+              <%=link_to t('blacklight.search.start_over'), url_for(:action=>'index'), :class => "catalog_startOverLink", :id=>"startOverLink" %>
+              <%= render_constraints(params) %>
+
+            </div>
+        <% end %>
+        <% if !has_search_parameters? && params[:action] != 'index' && !@document.nil?%>
+            <div class="breadcrumb">
+                <%= link_to 'Home', :root %> >
+                <%if !@document[:category_s].nil?%>
+                  <%= link_to  @document[:category_s], '/?f[category_facet][]='+ @document[:category_s] %>
+                <%end%>
+                <a href="<%=request.original_url%>">
+                  <%if !@document[:title_t].nil?%>
+                    > <%= @document[:title_t][0] %>
+                  <%end%>
+                </a>
+            </div>
+      <%end%>
+      </div>
+        <!--END MOVED SEARCH-->
+    </div>
+</header><!--END ADDED BY MADISON MOTT -->

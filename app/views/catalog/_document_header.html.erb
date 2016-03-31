@@ -1,0 +1,21 @@
+<% # header bar for doc items in index view -%>
+<!-- _document_header.html.erb -->
+<div class="documentHeader clearfix">
+
+    <% # main title container for doc partial view -%>
+    <div class="image_crop" style="margin-bottom: 0">
+
+        <%= link_to  image_tag(render_thumb(document[:iiif_annotation_image_s], 300)), document %>
+
+    </div>
+    <div style="vertical-align: middle">
+    <%if !document[:creator_t].nil? and !document[:creator_t].nil? and !document[:creator_t][0].nil? and !request.path.match('^/catalog/[0-9]+')%>
+    <h5 class="index_title" style="padding:0 12px;font-size: 15px">
+        <%= link_to_document document, :label=>document_show_link_field(document), :counter => (document_counter + 1 + @response.params[:start].to_i) %>
+    </h5>
+    <%end%>
+
+    </div>
+    <!-- moved bookmark function below -->
+</div>
+<!-- end of _document_header.html.erb -->

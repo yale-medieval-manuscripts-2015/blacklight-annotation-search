@@ -1,0 +1,289 @@
+@import "bootstrap";
+@import "bootstrap-responsive";
+@import 'blacklight/blacklight';
+
+
+body {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
+
+.document {
+   clear: none;
+}
+
+@media (min-width: 1200px) {
+
+  .document {
+    margin-left: 0px;
+  }
+}
+
+.document {
+  max-height: 520px;
+  min-height: 520px;
+}
+
+.dl-horizontal dd {
+  margin-left: 0px;
+  //float: left;
+  padding-left: 20px;
+}
+
+.dl-horizontal dt {
+  text-align: left;
+  overflow: hidden;
+  width: auto;
+}
+
+
+
+/*
+  Responsive
+*/
+.container, .navbar-static-top .container, .navbar-fixed-top .container, .navbar-fixed-bottom .container {
+  width: 100%  /*!important;*/
+}
+
+.home-head{
+  width: auto;
+}
+
+
+.search-head{
+  width: auto;
+  padding-left: 18%;
+  padding-right: 19% !important;
+}
+
+.detail-head{
+  width: auto;
+  padding-left: 20%;
+  padding-right: 17%;
+}
+
+
+
+.detail-row .span1 {
+  width: 80px !important;
+}
+
+@media(min-width: 420px) {
+  .detail-row .span5 {
+    width: 600px !important;
+  }
+  .detail-row .span4 {
+    width: 350px !important;
+  }
+  .detail-row .span3 {
+    width: 200px !important;
+  }
+  .detail-row{
+    width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #sidebar.span3 {width:220px;}
+}
+
+@media(min-width: 1260px) {
+  .detail-row .span5 {
+    width: 450px;
+  }
+  .detail-row{
+    width: 1260px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media(min-width: 1450px) {
+  .detail-row .span5 {
+    width: 450px;
+  }
+  .detail-row{
+    width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #sidebar.span3 {
+    width: 300px;
+  }
+}
+
+@media(min-width: 1720px) {
+  .detail-row .span9 {
+    width: 480px;
+  }
+  .detail-row{
+    width: 1260px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.facets-collapse, .facets-collapse.collapse
+{
+  height:auto
+}
+
+@media(min-width: 800px) {
+  .search-row .span9 {
+    width: 480px;
+  }
+  .search-row .span3 {
+    width: 220px;
+  }
+  .search-row .span9 .span9 .span3 {
+    width: 240px !important;
+  }
+  .search-row{
+    width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px
+  }
+}
+
+@media(min-width: 1260px) {
+  .search-row .span9 {
+    width: 720px;
+  }
+  .search-row{
+    width: 1260px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media(min-width: 1450px) {
+  .search-row .span9 {
+    width: 960px;
+  }
+  .search-row{
+    width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media(min-width: 1720px) {
+  .search-row .span9 {
+    width: 1200px;
+  }
+  .search-row{
+    width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.home-row .span9 .span3 img {
+  margin-bottom: 20px;
+}
+
+.home-row .span9 .splash_page_image .span3 {
+  width: 220px !important;
+  margin-left: 20px;
+  margin-right: 0px;
+  margin-top: 0px
+}
+
+@media(min-width: 900px) {
+  .home-row{
+    width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .home-row .span9 {
+    width: 660px;
+  }
+  .home-row .span3 {
+    width: 220px;
+    margin-left: 10px;
+    margin-right: 0;
+  }
+}
+
+@media(min-width: 1000px) {
+.home-row{
+    width: 960px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 36px
+}
+.home-row .span9 {
+      width:660px;
+      margin-left: 20px;
+      margin-right: 0;
+    }
+}
+
+@media(min-width: 1260px) {
+  .home-row .span9 {
+    width: auto;
+    margin-left: 20px;
+    margin-right: 0;
+  }
+}
+
+@media(min-width: 1450px) {
+  .home-row .span9 {
+    width: auto;
+    margin-left: 20px;
+    margin-right: 0;
+  }
+}
+
+@media(min-width: 1720px) {
+  .home-row .span9 {
+    width: auto;
+    margin-left: 20px;
+    margin-right: 0;
+  }
+}
+
+#sortAndPerPage {
+  margin-right: 20px;
+}
+
+// .search-results :nth-child(3n) { margin-right: 0px;}
+
+.splash_page_image .span3 {
+  margin: 0px;
+}
+
+.splash_page_image .span3 {
+  margin: 48px;
+}
+
+.user-row{
+    margin-top: 20px;
+    width: auto;
+    padding-left: 9%;
+    padding-right: 9%;
+  }
+
+// notifications on home page
+#main-flashes {
+  margin-top: 20px;
+}
+
+.metadata-divider {
+  height:1px;
+  background-color: #b6b6b6;
+  margin-top: 15px;
+}
+
+.logo_image {
+  margin-bottom: 10px;
+  margin-top: 15px;
+  max-width: 250px;
+}
+
+
+
+
